@@ -21,8 +21,8 @@ if not exist main.java (
     exit /b
 )
 
-:: Compila o arquivo main.java e as classes na pasta utils, colocando os .class em bin
-javac -d ../../bin main.java ..\utils\*.java
+:: Compila o arquivo main.java e as classes nas pastas utils e modules, colocando os .class em bin
+javac -d ../../bin main.java ..\utils\*.java ..\modules\*.java
 if %errorlevel% neq 0 (
     echo Compilacao falhou!
     pause
