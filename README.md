@@ -8,16 +8,31 @@
 
 ```mermaid
 flowchart TD
-	PrivateKey(Chave Privada)
-	
-	PrivateKey -->|Convert| WIF[Formato WIF]
-	PrivateKey -->|Elliptic Curve Algorithm| PublicKey(Chave Pública)
-	PublicKey --> |convert| uncompressed(Uncompressed)
-	PublicKey --> |convert| compressed(Compressed)
-	
-	PublicKeyTarget(Chave Publica Alvo) --> |convert| compressed2(Compressed)
-	compressed2(Chave Publica Comp.) <--> |Compare| compressed
-	compressed --> |WIN!| Value[🪙] 
+	subgraph 1[WIF KEY]
+		PrivateKey1(Chave Privada)
+		PrivateKey1 --> |Duble SHA-256| SHA-256-1A(SHA-256)
+		SHA-256-1A --> SHA-256-2B(SHA-256)
+		SHA-256-2B --> Base58(Base58)
+		Base58 --> WIF[Formato WIF]
+	end
+
+	subgraph 2[SEARCH]
+
+		subgraph 3[LOOP]
+			PrivateKey2(Chave Privada)
+		end
+		PrivateKey2 -->|Elliptic Curve Algorithm| CurvaEliptica(Eliptica)
+		CurvaEliptica -->|Duble SHA-256| SHA-256-1(SHA-256)
+		SHA-256-1 --> SHA-256-2(SHA-256)
+		SHA-256-2 --> ripemd160(ripemd160)
+
+		ripemd160 --> |convert| uncompressed(Uncompressed)
+		ripemd160 --> |convert| compressed(Compressed)
+		
+		PublicKeyTarget(Chave Publica Alvo) --> |convert| compressed2(Compressed)
+		compressed2(Chave Publica Comp.) <--> |Compare| compressed
+		compressed2 --> |WIN!| Value[🪙]
+	end
 ```
 
 ---
