@@ -1,11 +1,11 @@
 package main.functions;
 
 import java.security.NoSuchAlgorithmException;
-import elliptic.EllipticTools;
+import elliptic.Secp256k1;
 
 public class publicKeyGenerate {
   public static String generatePublicKey(String privateKey) throws NoSuchAlgorithmException {
-    String compressedPublicKey = EllipticTools.main(privateKey);    
+    String compressedPublicKey = Secp256k1.main(privateKey);    
 
     return compressedPublicKey;
   }
