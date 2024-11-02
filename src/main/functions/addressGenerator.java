@@ -15,22 +15,18 @@ public class addressGenerator {
 		}
 
 		byte[] sha256Hash = sha256(EncodingToolkit.hexStringToByteArray(compressedPublicKey));
-		byte[] ripemd160Hash = ripemd160.ripemd160Hash(sha256Hash); // Correctly call ripemd160Hash method
+		byte[] ripemd160Hash = ripemd160.ripemd160Hash(sha256Hash);
 
 		byte[] versionedHash = new byte[ripemd160Hash.length + 1];
-		versionedHash[0] = 0x00; // Version byte
+		versionedHash[0] = 0x00;
 		System.arraycopy(ripemd160Hash, 0, versionedHash, 1, ripemd160Hash.length);
 
 		byte[] checksum = sha256(sha256(versionedHash));
-		checksum = Arrays.copyOfRange(checksum, 0, 4); // Get first 4 bytes of the checksum
+		checksum = Arrays.copyOfRange(checksum, 0, 4);
 
 		byte[] binaryBitcoinAddress = new byte[versionedHash.length + 4];
 		System.arraycopy(versionedHash, 0, binaryBitcoinAddress, 0, versionedHash.length);
 		System.arraycopy(checksum, 0, binaryBitcoinAddress, versionedHash.length, 4);
-
-		//System.out.println(EncodingToolkit.base58Encode(binaryBitcoinAddress));
-		//Scanner pause = new Scanner(System.in);
-		//pause.nextLine(); // Aguarda o usuário pressionar Enter
 
 		return EncodingToolkit.base58Encode(binaryBitcoinAddress);
 	}
