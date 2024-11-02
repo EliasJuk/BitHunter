@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
  * 
  */
 
-public class EllipticTools {
+public class Secp256k1 {
   // Constantes da curva secp256k1
   private static final BigInteger p = new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F",
       16); // O campo primo
