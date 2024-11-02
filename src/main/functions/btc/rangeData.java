@@ -9,8 +9,12 @@ import java.util.List;
  * 
  */
 
-public class btcPuzzle {
+public class rangeData {
   public List<HexRange> ranges = new ArrayList<>();
+
+  public rangeData() {
+    Puzzle();
+  }
 
   public void Puzzle() {
     //{bits, start, end}
