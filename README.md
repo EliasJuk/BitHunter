@@ -1,10 +1,17 @@
-# BitHunter
+<h1 align="center">BitHunter</h1>
 
-<p>Esta é uma aplicação desenvolvida para fornecer uma variedade de ferramentas úteis para a comunidade de crypto e para entusiastas da computação. Ela oferece uma gama de ferramentas de conversão e funcionalidades que ajudam a simplificar tarefas complexas.</p>
+## Funcionalidades
+
+- **Puzzle Wallets**: Descubra chaves privadas.
+	- Puzzle wallets
+- **Conversão de Chaves**:
+	- Converta chaves privadas em formato Wallet Import Format (WIF).
+	- Converta chaves privadas em chaves públicas.
+	- Converta chaves públicas em endereços Bitcoin.
+
 <br/>
 
----
-## Funcionamento
+## Diagrama
 
 ```mermaid
 flowchart TD
@@ -12,7 +19,7 @@ flowchart TD
 		PrivateKey1(Chave Privada)
 		PrivateKey1 --> |Duble SHA-256| SHA-256-1A(SHA-256)
 		SHA-256-1A --> SHA-256-2B(SHA-256)
-		SHA-256-2B --> Base58(Base58)
+		SHA-256-2B --> |Base58|Base58(Base58)
 		Base58 --> WIF[Formato WIF]
 	end
 
@@ -21,7 +28,7 @@ flowchart TD
 		subgraph 3[LOOP]
 			PrivateKey2(Chave Privada)
 		end
-		PrivateKey2 -->|Elliptic Curve Algorithm| CurvaEliptica(Eliptica)
+		PrivateKey2 -->|Elliptic Curve Algorithm| CurvaEliptica(secp256k1)
 		CurvaEliptica -->|Duble SHA-256| SHA-256-1(SHA-256)
 		SHA-256-1 --> SHA-256-2(SHA-256)
 		SHA-256-2 --> ripemd160(ripemd160)
@@ -35,21 +42,6 @@ flowchart TD
 	end
 ```
 
----
-
-## Funcionalidades
-
-- **Puzzle Wallets**: Descubra a chaves privadas ocultas nessas wallets misteriosas.
-- **Conversão de Chaves**:
-	- Converta chaves privadas em formato Wallet Import Format (WIF).
-	- Converta chaves privadas em chaves públicas.
-	- Converta chaves públicas em endereços Bitcoin.
-- **Conversões**:
-	- String para binário.
-	- String para hexadecimal.
-	- Hexadecimal para binário.
-	- Entre outros.
-	
 ---
 
 ## How to Use
