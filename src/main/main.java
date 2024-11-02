@@ -24,8 +24,10 @@ public class main {
 					" 2 - GENERATE PUBLIC KEY\n" +
 					" 3 - GENERATE BTC ADDRESS\n" +
 					"-------------------------------------------\n"+
-					" 4 - EllipticTools\n" +
+					" 4 - Only Target Wallet\n" +
 					" 5 - RIPDM168 COMPARE\n" +
+					"-------------------------------------------\n"+
+					" 9 - Wallet Balance\n" +
 					"-------------------------------------------\n"+
 					" 0 - EXIT\n");
 
@@ -44,6 +46,9 @@ public class main {
 					callFunctions.addressGenerate();
 					break;
 				case 4:
+					break;
+				case 9:
+					callFunctions.getBalance();
 					break;
 				case 0:
 					System.out.println("Exiting...");
