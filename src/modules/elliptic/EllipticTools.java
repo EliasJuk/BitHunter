@@ -1,4 +1,4 @@
-package handlers;
+package elliptic;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
