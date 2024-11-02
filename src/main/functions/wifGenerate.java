@@ -1,5 +1,4 @@
 package encoding;
-import utils.EncodingToolkit;
 
 /**
  *
