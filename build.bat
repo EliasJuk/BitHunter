@@ -22,7 +22,7 @@ if not exist main.java (
 )
 
 :: Compila o arquivo main.java e as classes nas pastas utils e modules, colocando os .class em bin
-javac -d ../../bin main.java ..\utils\*.java ..\modules\*.java
+javac -d ../../bin main.java ..\main\*.java ..\utils\*.java ..\modules\elliptic\*.java ..\modules\encoding\*.java ..\main\functions\*.java
 if %errorlevel% neq 0 (
     echo Compilacao falhou!
     pause
