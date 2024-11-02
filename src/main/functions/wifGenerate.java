@@ -1,4 +1,6 @@
-package encoding;
+package main.functions;
+
+import encoding.EncodingToolkit;
 
 /**
  *
@@ -6,7 +8,7 @@ package encoding;
  * 
  */
 
-public class WIFGenerator {
+public class wifGenerate {
 	public static String KeyToWIF(String privateKeyHex, boolean compressed) {
 		try {
 			// Adicionar o prefixo (0x80 para Bitcoin principal)
@@ -36,7 +38,6 @@ public class WIFGenerator {
 
 			// Converter para Base58
 			String wif = EncodingToolkit.base58Encode(EncodingToolkit.hexStringToByteArray(finalKey));
-			
 			
 			return wif;
 
