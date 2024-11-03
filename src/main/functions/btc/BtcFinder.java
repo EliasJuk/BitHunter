@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import java.util.Scanner;
 import main.functions.addressGenerator;
 import main.functions.publicKeyGenerate;
-import utils.textGenerate;
+import utils.KeyDataLogger;
 
 /**
  * 
@@ -95,7 +95,7 @@ public class BtcFinder {
     privateKeyHex = String.format("%064x", new BigInteger(privateKeyHex, 16));
 
     // Quando os endereços forem iguais, armazena em um arquivo TXT
-    textGenerate.generateText("FindKeys.txt", "Challenge: " + (challengeNumber+1) + " - Attempts: " + count + " - PrivateKey: " + privateKeyHex);
+    KeyDataLogger.writeToFile("FoundKeys.txt", "Challenge: " + (challengeNumber+1) + " - Attempts: " + count + " - PrivateKey: " + privateKeyHex);
   }
 
   public static void main(String[] args) {
