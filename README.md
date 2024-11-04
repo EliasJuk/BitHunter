@@ -1,5 +1,9 @@
 <h1 align="center">BitHunter</h1>
 
+<p align="center">
+  <img src="screenshot.png" alt="bithunter"/>
+</p>
+
 ## Funcionalidades
 
 - **Puzzle Wallets**: Descubra chaves privadas.
@@ -11,21 +15,26 @@
 
 <br/>
 
-## Diagrama
+## Diagram
 
 ```mermaid
-flowchart TD
-	subgraph 1[WIF KEY]
+flowchart
+direction RL
+	subgraph WIFKey [WIF KEY]
+	style WIFKey stroke:#A9A9A9,troke-width:4px
 		PrivateKey1(Chave Privada)
 		PrivateKey1 --> |Duble SHA-256| SHA-256-1A(SHA-256)
 		SHA-256-1A --> SHA-256-2B(SHA-256)
 		SHA-256-2B --> |Base58|Base58(Base58)
 		Base58 --> WIF[Formato WIF]
 	end
+```
 
-	subgraph 2[SEARCH]
-
-		subgraph 3[LOOP]
+```mermaid
+flowchart TD
+	subgraph SEARCH[SEARCH]
+	style SEARCH stroke:#A9A9A9,troke-width:4px
+		subgraph LOOP[LOOP]
 			PrivateKey2(Chave Privada)
 		end
 		PrivateKey2 -->|Elliptic Curve Algorithm| CurvaEliptica(secp256k1)
@@ -38,7 +47,11 @@ flowchart TD
 		
 		PublicKeyTarget(Chave Publica Alvo) --> |convert| compressed2(Compressed)
 		compressed2(Chave Publica Comp.) <--> |Compare| compressed
-		compressed2 --> |WIN!| Value[🪙]
+		compressed --> AddressGenerated(Address)
+		AddressTarget(Target Address) <--> |Compare| AddressGenerated
+
+		AddressGenerated -.-> |WIN!| Value
+		compressed2 -.-> |WIN!| Value[🪙]
 	end
 ```
 
