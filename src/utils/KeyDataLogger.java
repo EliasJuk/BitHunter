@@ -19,7 +19,7 @@ public class KeyDataLogger {
 
       // Cria um arquivo no caminho especificado
       File arquivo = new File(caminho);
-      System.out.println("Arquivo será salvo em: " + arquivo.getAbsolutePath());
+      System.out.println("\nArquivo será salvo em: " + arquivo.getAbsolutePath());
 
       // Escreve o conteúdo no arquivo
       BufferedWriter escritor = new BufferedWriter(new FileWriter(arquivo, true));
