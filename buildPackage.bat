@@ -12,7 +12,7 @@ echo Arquivo MANIFEST.MF criado com sucesso!
 :: ==================================
 
 :: Compila os arquivos .java na pasta bin
-javac -d bin src/main/*.java src/main/functions/*.java src/modules/elliptic/*.java src/modules/encoding/*.java src/utils/*.java
+javac -d bin -Xlint:deprecation src/main/*.java src/main/functions/*.java src/main/functions/btc/*.java src/modules/elliptic/*.java src/modules/encoding/*.java src/utils/*.java
 if %errorlevel% neq 0 (
     echo Compilação falhou!
     pause
